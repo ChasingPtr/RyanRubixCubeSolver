@@ -56,25 +56,20 @@
 		 System.out.println(Cube_colors[5][8]);
  */
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class rubixCube {
+	static ArrayList<FaceCommand> solutionCommands = new ArrayList<FaceCommand>();
+	static FaceController faceController; 
 	
 	public rubixCube(){
 		
 		
 	}
+	
+	public static void solveCube(int[][] Cube_colors ) {
 
-	 public static void main(String[] args) throws InterruptedException 
-	    {
-		 SerialTest RedClockWise = new SerialTest();
-			
-			//RedClockWise.colorInput(Color.Yellow, Color.Blue, Color.Green);
-		
-		 int[][] Cube_colors = new int[6][9];
-		
-		 Cube_colors = getColors();
-		 
 		 //whiteClockWise(Cube_colors);
 		 //whiteCounterClockWise(Cube_colors);
 		 //redClockWise(Cube_colors);
@@ -98,62 +93,7 @@ public class rubixCube {
 		 System.out.println("checkpoint3");
 		 whiteFourthEdge(Cube_colors);
 		 System.out.println("checkpoint4");
-		 /*
-		 System.out.println(Cube_colors[0][0]);
-		 System.out.println(Cube_colors[0][1]);
-		 System.out.println(Cube_colors[0][2]);
-		 System.out.println(Cube_colors[0][3]);
-		 System.out.println(Cube_colors[0][4]);
-		 System.out.println(Cube_colors[0][5]);
-		 System.out.println(Cube_colors[0][6]);
-		 System.out.println(Cube_colors[0][7]);
-		 System.out.println(Cube_colors[0][8]);
-		 System.out.println(Cube_colors[1][0]);
-		 System.out.println(Cube_colors[1][1]);
-		 System.out.println(Cube_colors[1][2]);
-		 System.out.println(Cube_colors[1][3]);
-		 System.out.println(Cube_colors[1][4]);
-		 System.out.println(Cube_colors[1][5]);
-		 System.out.println(Cube_colors[1][6]);
-		 System.out.println(Cube_colors[1][7]);
-		 System.out.println(Cube_colors[1][8]);
-		 System.out.println(Cube_colors[2][0]);
-		 System.out.println(Cube_colors[2][1]);
-		 System.out.println(Cube_colors[2][2]);
-		 System.out.println(Cube_colors[2][3]);
-		 System.out.println(Cube_colors[2][4]);
-		 System.out.println(Cube_colors[2][5]);
-		 System.out.println(Cube_colors[2][6]);
-		 System.out.println(Cube_colors[2][7]);
-		 System.out.println(Cube_colors[2][8]);
-		 System.out.println(Cube_colors[3][0]);
-		 System.out.println(Cube_colors[3][1]);
-		 System.out.println(Cube_colors[3][2]);
-		 System.out.println(Cube_colors[3][3]);
-		 System.out.println(Cube_colors[3][4]);
-		 System.out.println(Cube_colors[3][5]);
-		 System.out.println(Cube_colors[3][6]);
-		 System.out.println(Cube_colors[3][7]);
-		 System.out.println(Cube_colors[3][8]);
-		 System.out.println(Cube_colors[4][0]);
-		 System.out.println(Cube_colors[4][1]);
-		 System.out.println(Cube_colors[4][2]);
-		 System.out.println(Cube_colors[4][3]);
-		 System.out.println(Cube_colors[4][4]);
-		 System.out.println(Cube_colors[4][5]);
-		 System.out.println(Cube_colors[4][6]);
-		 System.out.println(Cube_colors[4][7]);
-		 System.out.println(Cube_colors[4][8]);
-		 System.out.println(Cube_colors[5][0]);
-		 System.out.println(Cube_colors[5][1]);
-		 System.out.println(Cube_colors[5][2]);
-		 System.out.println(Cube_colors[5][3]);
-		 System.out.println(Cube_colors[5][4]);
-		 System.out.println(Cube_colors[5][5]);
-		 System.out.println(Cube_colors[5][6]);
-		 System.out.println(Cube_colors[5][7]);
-		 System.out.println(Cube_colors[5][8]);
-		 */
+
 		whiteFirstCornerPart1(Cube_colors);
 		System.out.println("checkpoint1");
 		whiteFirstCornerPart2(Cube_colors);
@@ -244,6 +184,48 @@ public class rubixCube {
 		 System.out.println("checkpoint8");
 		 yellowCross(Cube_colors);
 		 System.out.println("checkpoint1");
+		 		
+	}
+
+	 public static void main(String[] args) throws InterruptedException 
+	    {
+		 
+		 ArduinoController main = new ArduinoController();
+			main.initialize();
+			Thread t=new Thread() {
+				public void run() {
+					//the following line will keep this app alive for 1000 seconds,
+					//waiting for events to occur and responding to them (printing incoming messages to console).
+					//try {Thread.sleep(3000);} catch (InterruptedException ie) {}
+					try {Thread.sleep(3000);} catch (InterruptedException ie) {}
+					//if (!isInitialized)
+						//doInitialSetup(main);
+					//main.sendTurn();
+					faceController = new FaceController(main, Color.Blue, Color.Red);
+					faceController.print();
+
+					int[][] Cube_colors = new int[6][9];
+						
+					Cube_colors = InputReader.getColors();
+					solveCube(Cube_colors);
+					
+					faceController.print();
+					
+					main.close();
+					
+				}
+			};
+			t.start();
+			t.join();
+			main.close();
+			System.out.println("Started");		 
+		 
+		// SerialTest RedClockWise = new SerialTest();
+			
+			//RedClockWise.colorInput(Color.Yellow, Color.Blue, Color.Green);
+		
+		 
+		 printSolutionCommands();
 }
 	 public static void whiteFirstEdge(int Cube_colors[][]) {
 		 //Red
@@ -2516,26 +2498,9 @@ public class rubixCube {
 		
 		
 		System.out.println("White ClockWise");
-		//System.out.println(colors[0][0]);
-		//System.out.println(colors[0][1]);
-		//System.out.println(colors[0][2]);
-		//System.out.println(colors[0][3]);
-		//System.out.println(colors[0][4]);
-		//System.out.println(colors[0][5]);
-		//System.out.println(colors[0][6]);
-		//System.out.println(colors[0][7]);
-		//System.out.println(colors[0][8]);
-		//System.out.println(colors[1][3]);
-		//System.out.println(colors[1][6]);
-		//System.out.println(colors[3][2]);
-		//System.out.println(colors[3][5]);
-		//System.out.println(colors[3][8]);
-		//System.out.println(colors[4][0]);
-		//System.out.println(colors[4][3]);
-		//System.out.println(colors[4][6]);
-		//System.out.println(colors[5][0]);
-		//System.out.println(colors[5][3]);
-		//System.out.println(colors[5][6]);
+		solutionCommands.add(new FaceCommand(Color.White, true));
+		faceController.performOperation(Color.White, true);
+
 		return colors;
 	 }
 	 public static int[][] whiteCounterClockWise(int colors[][]){
@@ -2590,6 +2555,9 @@ public class rubixCube {
 			
 			
 			System.out.println("White Counter ClockWise");
+			solutionCommands.add(new FaceCommand(Color.White, false));
+			faceController.performOperation(Color.White, false);
+
 			return colors;
 		 }
 	 public static int[][] redClockWise(int colors[][]){
@@ -2641,206 +2609,14 @@ public class rubixCube {
 			colors[5][1] = colorChange[0][4];
 		    colors[5][2] = colorChange[0][3];
 			
-		    SerialTest Red = new SerialTest();
 		   
-		     
-		  if (colors[4][4] == 1 && colors[1][4] == 2){
-			  try {
-					Red.colorInput(Color.White, Color.Red, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 1 && colors[1][4] == 4){
-			  try {
-					Red.colorInput(Color.White, Color.Orange, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 1 && colors[1][4] == 5){
-			  try {
-					Red.colorInput(Color.White, Color.Blue, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 1 && colors[1][4] == 6){
-			  try {
-					Red.colorInput(Color.White, Color.Green, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 2 && colors[1][4] == 1){
-			  try {
-					Red.colorInput(Color.Red, Color.White, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 2 && colors[1][4] == 3){
-			  try {
-					Red.colorInput(Color.Red, Color.Yellow, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 2 && colors[1][4] == 5){
-			  try {
-					Red.colorInput(Color.Red, Color.Blue, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 2 && colors[1][4] == 6){
-			  try {
-					Red.colorInput(Color.Red, Color.Green, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 3 && colors[1][4] == 2){
-			  try {
-					Red.colorInput(Color.Yellow, Color.Red, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 3 && colors[1][4] == 4){
-			  try {
-					Red.colorInput(Color.Yellow, Color.Orange, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 3 && colors[1][4] == 5){
-			  try {
-					Red.colorInput(Color.Yellow, Color.Blue, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 3 && colors[1][4] == 6){
-			  try {
-					Red.colorInput(Color.Yellow, Color.Green, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 4 && colors[1][4] == 1){
-			  try {
-					Red.colorInput(Color.Orange, Color.White, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 4 && colors[1][4] == 3){
-			  try {
-					Red.colorInput(Color.Orange, Color.Yellow, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 4 && colors[1][4] == 5){
-			  try {
-					Red.colorInput(Color.Orange, Color.Blue, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 4 && colors[1][4] == 6){
-			  try {
-					Red.colorInput(Color.Orange, Color.Green, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 5 && colors[1][4] == 1){
-			  try {
-					Red.colorInput(Color.Blue, Color.White, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 5 && colors[1][4] == 2){
-			  try {
-					Red.colorInput(Color.Blue, Color.Red, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 5 && colors[1][4] == 3){
-			  try {
-					Red.colorInput(Color.Blue, Color.Yellow, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 5 && colors[1][4] == 4){
-			  try {
-					Red.colorInput(Color.Blue, Color.Orange, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 6 && colors[1][4] == 1){
-			  try {
-					Red.colorInput(Color.Green, Color.White, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 6 && colors[1][4] == 2){
-			  try {
-					Red.colorInput(Color.Green, Color.Red, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 6 && colors[1][4] == 3){
-			  try {
-					Red.colorInput(Color.Green, Color.Yellow, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
-		  if (colors[4][4] == 6 && colors[1][4] == 4){
-			  try {
-					Red.colorInput(Color.Green, Color.Orange, Color.Red);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-		  }
 			
 			
 			
 			System.out.println("Red ClockWise");
-			
+			solutionCommands.add(new FaceCommand(Color.Red, true));
+			faceController.performOperation(Color.Red, true);
+
 			return colors;
 		 }
 	 public static int[][] redCounterClockWise(int colors[][]){
@@ -2895,6 +2671,9 @@ public class rubixCube {
 		
 		
 		System.out.println("Red CounterClockWise");
+		solutionCommands.add(new FaceCommand(Color.Red, false));
+		faceController.performOperation(Color.Red, false);
+
 		return colors;
 	 }
 	 public static int[][] yellowClockWise(int colors[][]){
@@ -2946,6 +2725,9 @@ public class rubixCube {
 			colors[5][5] = colorChange[0][4];
 		    colors[5][8] = colorChange[0][3];
 		    System.out.println("Yellow ClockWise");
+			solutionCommands.add(new FaceCommand(Color.Yellow, true));
+			faceController.performOperation(Color.Yellow, true);
+
 		    return colors;
 	 }
 	 public static int[][] yellowCounterClockWise(int colors[][]){
@@ -2997,6 +2779,9 @@ public class rubixCube {
 		colors[5][5] = colorChange[0][1];
 	    colors[5][8] = colorChange[0][2];
 	    System.out.println("Yellow CounterClockWise");
+		solutionCommands.add(new FaceCommand(Color.Yellow, false));
+		faceController.performOperation(Color.Yellow, false);
+
 	    return colors;
 	 }
 	 public static int[][] orangeClockWise(int colors[][]){
@@ -3048,6 +2833,9 @@ public class rubixCube {
 			colors[5][7] = colorChange[0][1];
 		    colors[5][8] = colorChange[0][2];
 		    System.out.println("Orange ClockWise");
+			solutionCommands.add(new FaceCommand(Color.Orange, true));
+			faceController.performOperation(Color.Orange, true);
+
 		    return colors;
 	 }
 	 public static int[][] orangeCounterClockWise(int colors[][]){
@@ -3099,6 +2887,9 @@ public class rubixCube {
 		colors[5][7] = colorChange[0][4];
 	    colors[5][8] = colorChange[0][3];
 	    System.out.println("Orange CounterClockWise");
+		solutionCommands.add(new FaceCommand(Color.Orange, false));
+		faceController.performOperation(Color.Orange, false);
+
 	    return colors;
 	 }
 	 public static int[][] blueClockWise(int colors[][]){
@@ -3150,6 +2941,9 @@ public class rubixCube {
 			colors[3][1] = colorChange[0][1];
 		    colors[3][2] = colorChange[0][2];
 		    System.out.println("Blue ClockWise");
+			solutionCommands.add(new FaceCommand(Color.Blue, true));
+			faceController.performOperation(Color.Blue, true);
+
 		    return colors;
 	 }
 	 public static int[][] blueCounterClockWise(int colors[][]){
@@ -3201,6 +2995,9 @@ public class rubixCube {
 		colors[3][1] = colorChange[0][7];
 	    colors[3][2] = colorChange[0][8];
 	    System.out.println("Blue CounterClockWise");
+		solutionCommands.add(new FaceCommand(Color.Blue, false));
+		faceController.performOperation(Color.Blue, false);
+
 	    return colors;
 	 }
 	 public static int[][] greenClockWise(int colors[][]){
@@ -3252,6 +3049,9 @@ public class rubixCube {
 			colors[3][7] = colorChange[0][7];
 		    colors[3][8] = colorChange[0][8];
 		    System.out.println("Green Clockwise");
+			solutionCommands.add(new FaceCommand(Color.Green, true));
+			faceController.performOperation(Color.Green, true);
+
 		    return colors;
 	 }
 	 public static int[][] greenCounterClockWise(int colors[][]){
@@ -3304,56 +3104,19 @@ public class rubixCube {
 		colors[3][7] = colorChange[0][1];
 	    colors[3][8] = colorChange[0][2];
 	    System.out.println("Green CounterClockwise");
+		solutionCommands.add(new FaceCommand(Color.Green, false));
+		faceController.performOperation(Color.Green, false);
+
 	    return colors;
 	 }
-	 public static int[][] getColors() {
-		 int playerInput[][] = new int[6][9];
-		 int counter = 0;
-		 Scanner data = new Scanner(System.in);
-		 System.out.println("1 = white 2 = red 3 = yellow 4 = orange "
-		 		+ "5 = blue 6 = green");
-		System.out.println("Write the values for the white face");
-		 for (int i = 0; i < 9; i++){
-			
-			playerInput[0][i] = Integer.parseInt(data.nextLine());
-			
-			//System.out.println(playerInput[0][i]);
-	        }
-		 System.out.println("Write the values for the red face");
-		 for (int i = 0; i < 9; i++){
-				
-				playerInput[1][i] = Integer.parseInt(data.nextLine());
-				//System.out.println(playerInput[1][i]);
-		        }
-		 System.out.println("Write the values for the yellow face");
-		 for (int i = 0; i < 9; i++){
-				
-				playerInput[2][i] = Integer.parseInt(data.nextLine());
-				//System.out.println(playerInput[2][i]);
-		        }
-		 System.out.println("Write the values for the orange face");
-		 for (int i = 0; i < 9; i++){
-				
-				playerInput[3][i] = Integer.parseInt(data.nextLine());
-				//System.out.println(playerInput[3][i]);
-		        }
-		 System.out.println("Write the values for the blue face");
-		 for (int i = 0; i < 9; i++){
-				
-				playerInput[4][i] = Integer.parseInt(data.nextLine());
-				//System.out.println(playerInput[4][i]);
-		        }
-		 System.out.println("Write the values for the green face");
-		 for (int i = 0; i < 9; i++){
-				
-				playerInput[5][i] = Integer.parseInt(data.nextLine());
-				//System.out.println(playerInput[5][i]);
-		        }
-		 
-		return playerInput;
-	} {
-		 
+	 
+	 public static void printSolutionCommands() {
+		 for (FaceCommand elt : solutionCommands) {
+			 elt.print();
+			 System.out.println(" ");
+		 }
 	 }
+
 	public class Cube_colors{
 		
 	}

@@ -25,5 +25,9 @@ public enum Color {
 				return "INVALID";
 			}
 		}
+		
+		public void print() {
+			System.out.print(asString());
+		}
 }
 	
