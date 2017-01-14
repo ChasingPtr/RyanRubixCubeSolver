@@ -5,31 +5,29 @@ import java.io.OutputStream;
 import gnu.io.CommPortIdentifier; 
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent; 
-import gnu.io.SerialPortEventListener; 
+import gnu.io.SerialPortEventListener;
+
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
-
 public class ArduinoController implements SerialPortEventListener {
 	SerialPort serialPort;
-        /** The port we're normally going to use. */
+	/** The port we're normally going to use. */
 	private static final String PORT_NAMES[] = { 
 			"/dev/tty.wchusbserial1420", // My Arduino rsolver
 			//"/dev/tty.usbserial-A9007UX1", // Mac OS X
-            //            "/dev/ttyACM0", // Raspberry Pi
+			//            "/dev/ttyACM0", // Raspberry Pi
 			//"/dev/ttyUSB0", // Linux
 			//"COM3", // Windows
 	};
-	
-	
-	
-	
+
 	/**
-	* A BufferedReader which will be fed by a InputStreamReader 
-	* converting the bytes into characters 
-	* making the displayed results codepage independent
-	*/
+	 * A BufferedReader which will be fed by a InputStreamReader 
+	 * converting the bytes into characters 
+	 * making the displayed results codepage independent
+	 */
 	private BufferedReader input;
 	/** The output stream to the port */
 	private OutputStream output;
@@ -37,9 +35,16 @@ public class ArduinoController implements SerialPortEventListener {
 	private static final int TIME_OUT = 2000;
 	/** Default bits per second for COM port. */
 	private static final int DATA_RATE = 115200;
-	
+
+	String commands = "";
+
 	public void flush() {
 		printOut("beginning flush");
+		if (commands != "") {
+			printOut("Command string to send: " + commands);
+			sendInstructions(commands);
+		}
+		commands = "";
 		try {
 			output.flush();
 		} catch (IOException e) {
@@ -57,7 +62,7 @@ public class ArduinoController implements SerialPortEventListener {
 		//}
 		//printOut("done input flush");
 	}
-	
+
 	public void send(byte[] bytes) {
 		try {
 			output.write(bytes);
@@ -72,38 +77,41 @@ public class ArduinoController implements SerialPortEventListener {
 		bytes[0] = (byte)c;
 		send(bytes);
 	}
-	public void send(String s) {
-		printOut("sending: " + s);
-		send(s.getBytes());
-		send('\0');
+
+	//	public void send(String s) {
+	//		               printOut("sending: " + s);
+	//		               send(s.getBytes());
+	//		               send('\0');
+	//	}
+	//	
+	public void addFlip() {
+		printOut("adding flip");
+		commands += "F";
 	}
-	
-	public void sendFlip() {
-		printOut("sending flip");
-		send("I1F");
+	public void addTurn() {
+		printOut("adding turn");
+		commands += "T";
 	}
-	public void sendTurn() {
-		printOut("sending turn");
-		send("I1T");
+	public void addHold() {
+		printOut("adding hold");
+		commands += "H";
 	}
-	public void sendHold() {
-		printOut("sending hold");
-		send("I1H");
-	}
-	
-	public void handshake() {
-		send("H");
-	}
-	
+
+	//	public void handshake() {
+	//		send("H");
+	//	}
+
 	public void sendInstructions(String s) {
-		String cmdStr = "I" + String.valueOf(s.length()) + s;
-		send(cmdStr);
+		String cmdStr = "I" + String.valueOf(s.length()) + s + '\0';
+		//String cmdStr = "I" + String.valueOf(s.length()) + s + '\0';
+		printOut("sending: " + cmdStr);
+		send(cmdStr.getBytes());
 	}
 
 	public void initialize() {
-                // the next line is for Raspberry Pi and 
-                // gets us into the while loop and was suggested here was suggested http://www.raspberrypi.org/phpBB3/viewtopic.php?f=81&t=32186
-        //System.setProperty("gnu.io.rxtx.SerialPorts", PORT_NAMES[0]);
+		// the next line is for Raspberry Pi and 
+		// gets us into the while loop and was suggested here was suggested http://www.raspberrypi.org/phpBB3/viewtopic.php?f=81&t=32186
+		//System.setProperty("gnu.io.rxtx.SerialPorts", PORT_NAMES[0]);
 		printOut("Beginning initialize");
 		CommPortIdentifier portId = null;
 		Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
@@ -112,12 +120,12 @@ public class ArduinoController implements SerialPortEventListener {
 		while (portEnum.hasMoreElements()) {
 			CommPortIdentifier currPortId = (CommPortIdentifier) portEnum.nextElement();
 			if (currPortId.getName().startsWith(""))
-			for (String portName : PORT_NAMES) {
-				if (currPortId.getName().equals(portName)) {
-					portId = currPortId;
-					break;
+				for (String portName : PORT_NAMES) {
+					if (currPortId.getName().equals(portName)) {
+						portId = currPortId;
+						break;
+					}
 				}
-			}
 		}
 		if (portId == null) {
 			System.out.println("Could not find COM port.");
@@ -142,7 +150,7 @@ public class ArduinoController implements SerialPortEventListener {
 			// add event listeners
 			serialPort.addEventListener(this);
 			serialPort.notifyOnDataAvailable(true);
-			
+
 			//sendTurn();
 			//output.flush();
 		} catch (Exception e) {
@@ -175,32 +183,32 @@ public class ArduinoController implements SerialPortEventListener {
 		case SerialPortEvent.OUTPUT_BUFFER_EMPTY:
 			printOut("empty)");
 			break;
-		  
-		  // Field descriptor #8 I
-		  case SerialPortEvent.CTS: printOut("CTS"); break;
-		  
-		  // Field descriptor #8 I
-		  case SerialPortEvent.DSR: printOut("DSR"); break;
-		  
-		  // Field descriptor #8 I
-		  case SerialPortEvent.RI: printOut("RI"); break;
-		  
-		  // Field descriptor #8 I
-		  case SerialPortEvent.CD: printOut("CD"); break;
-		  
-		  // Field descriptor #8 I
-		  case SerialPortEvent.OE: printOut("OE"); break;
-		  
-		  // Field descriptor #8 I
-		  case SerialPortEvent.PE: printOut("PE"); break;
-		  
-		  // Field descriptor #8 I
-		  case SerialPortEvent.FE: printOut("FE"); break;
-		  
-		  // Field descriptor #8 I
-		  case SerialPortEvent.BI: printOut("BI"); break;
-		  		
-		  default: printOut(String.valueOf(oEvent.getEventType())); break;
+
+			// Field descriptor #8 I
+		case SerialPortEvent.CTS: printOut("CTS"); break;
+
+		// Field descriptor #8 I
+		case SerialPortEvent.DSR: printOut("DSR"); break;
+
+		// Field descriptor #8 I
+		case SerialPortEvent.RI: printOut("RI"); break;
+
+		// Field descriptor #8 I
+		case SerialPortEvent.CD: printOut("CD"); break;
+
+		// Field descriptor #8 I
+		case SerialPortEvent.OE: printOut("OE"); break;
+
+		// Field descriptor #8 I
+		case SerialPortEvent.PE: printOut("PE"); break;
+
+		// Field descriptor #8 I
+		case SerialPortEvent.FE: printOut("FE"); break;
+
+		// Field descriptor #8 I
+		case SerialPortEvent.BI: printOut("BI"); break;
+
+		default: printOut(String.valueOf(oEvent.getEventType())); break;
 		}
 		if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
 			try {
@@ -214,7 +222,7 @@ public class ArduinoController implements SerialPortEventListener {
 		}
 		// Ignore all the other eventTypes, but you should consider the other ones.
 	}	
-	
+
 	static void printOut(String s) {
 		System.out.println(s);
 	}

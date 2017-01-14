@@ -18,19 +18,23 @@ public class FaceController {
 	public void flip() {
 		printOut("flipping");
 		faceState.flip();
-		arduino.sendFlip();
+		arduino.addFlip();
 	}
 	public void turn() {
 		printOut("turning");
 		faceState.turn(clockwise);
-		arduino.sendTurn();
+		arduino.addTurn();
 		clockwise = !clockwise;
 	}
 	public void hold() {
 		printOut("holding");
 		faceState.hold();
-		arduino.sendHold();
+		arduino.addHold();
 		clockwise = !clockwise;
+	}
+	
+	public void commit() {
+		arduino.flush();
 	}
 
 	/*
@@ -48,21 +52,37 @@ public class FaceController {
 
 	public void performOperation(Color face, boolean turnClockwise) {
 		putColorBottom(face);
-		if (turnClockwise == clockwise) {
-			hold();
+		if (turnClockwise) {
+			if (clockwise) {
+				hold();
+			} else {
+				turn();
+				hold();
+			}
 		} else {
-			// We're looking at it from the top, but the color face
-			// is at the bottom. So, our clockwise is the user's counter-
-			// clockwise
-			hold();
-			turn();
-			hold();
-			turn();
-			hold();
-			turn();
-
-
+			if (clockwise) {
+				turn();
+				hold();
+			} else {
+				hold();
+			}
 		}
+//		
+//		if (turnClockwise == clockwise) {
+//			hold();
+//		} else {
+//			// We're looking at it from the top, but the color face
+//			// is at the bottom. So, our clockwise is the user's counter-
+//			// clockwise
+//			hold();
+//			turn();
+//			hold();
+//			turn();
+//			hold();
+//			turn();
+//
+//
+//		}
 
 
 	}
