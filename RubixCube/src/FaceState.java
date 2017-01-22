@@ -129,7 +129,7 @@ public class FaceState {
 			case Blue: return Color.White;
 			case Yellow: return Color.Blue;
 			//case Orange: return Color.Red;
-			case Green: return Color.White;
+			case Green: return Color.Yellow;
 			default:
 				System.out.println("Unknown top color)");
 				return Color.INVALID;
