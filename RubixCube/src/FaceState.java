@@ -11,7 +11,7 @@ public class FaceState {
 			System.out.println(s);
 	}
 	void printTop() {
-		printOut("top is " + top().toString());			
+		printOut("top is " + top().toString() + " front is " + front().toString());			
 	}
 
 	private Color topColor;

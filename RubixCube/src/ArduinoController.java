@@ -36,7 +36,7 @@ public class ArduinoController implements SerialPortEventListener {
 	/** Default bits per second for COM port. */
 	private static final int DATA_RATE = 115200;
 
-	String commands = "";
+	public String commands = "";
 
 	public void flush() {
 		printOut("beginning flush");

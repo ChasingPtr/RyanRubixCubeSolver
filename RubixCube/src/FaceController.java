@@ -22,7 +22,7 @@ public class FaceController {
 	}
 
 	private FaceState faceState;
-	private boolean clockwise = false; // Choose a default based on what the servo expects
+	private boolean nextTurnIsRight = false; // Choose a default based on what the servo expects
 	private ArduinoController arduino;
 
 	public FaceController(ArduinoController ardController, Color top, Color front) {
@@ -38,25 +38,36 @@ public class FaceController {
 		faceState.suppressPrints();
 	}
 	
+	private void printNextTurn() {
+		if (!doPrint)
+			return;
+		System.out.println("next is: " + (nextTurnIsRight ? "right" : "left"));
+	}
+	
 	/*
 	 * Operations to modify the state
 	 */
 	public void flip() {
-		faceState.flip();
 		commands.add("flip");
 		arduino.addFlip();
+		faceState.flip();
+		printNextTurn();
 	}
 	public void turn() {
 		commands.add("turn");
-		faceState.turn(clockwise);
 		arduino.addTurn();
-		clockwise = !clockwise;
+		faceState.turn(nextTurnIsRight);
+		nextTurnIsRight = !nextTurnIsRight;
+		printNextTurn();
+
 	}
 	public void hold() {
 		commands.add("hold");
-		faceState.hold();
 		arduino.addHold();
-		clockwise = !clockwise;
+		faceState.hold();
+		nextTurnIsRight = !nextTurnIsRight;
+		printNextTurn();
+
 	}
 	
 	public void commit() {
@@ -87,18 +98,14 @@ public class FaceController {
 	public void performOperation(Color face, boolean turnClockwise) {
 		putColorBottom(face);
 		if (turnClockwise) {
-			if (clockwise) {
-				
+			if (nextTurnIsRight) {	
 				turn();
 				hold();
-			
 			} else {
-				
 				hold();
 			}
 		} else {
-			if (clockwise) {
-			
+			if (nextTurnIsRight) {
 				hold();
 			} else {
 				turn();
@@ -112,7 +119,7 @@ public class FaceController {
 		if (!doPrint)
 			return;
 		faceState.print();
-		printOut("clockwise: " + String.valueOf(clockwise));
+		printOut("clockwise: " + String.valueOf(nextTurnIsRight));
 	}
 
 
