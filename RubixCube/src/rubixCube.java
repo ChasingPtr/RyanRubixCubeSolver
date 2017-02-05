@@ -47,14 +47,16 @@ public class rubixCube {
 		print("checkpoint3");
 		whiteFourthEdge(Cube_colors);
 		print("checkpoint4");
-
+		newF2lPart1(Cube_colors);
+		newF2lPart2(Cube_colors);
+		newF2l(Cube_colors);
 		whiteFirstCornerPart1(Cube_colors);
 		print("checkpoint1");
 		whiteFirstCornerPart2(Cube_colors);
 		print("checkpoint2");
-		whiteSecondCornerPart1(Cube_colors);
+		//whiteSecondCornerPart1(Cube_colors);
 		print("checkpoint3");
-		whiteSecondCornerPart2(Cube_colors);
+		//whiteSecondCornerPart2(Cube_colors);
 		print("checkpoint4");
 		whiteThirdCornerPart1(Cube_colors);
 		print("checkpoint5");
@@ -66,7 +68,7 @@ public class rubixCube {
 		print("checkpoint8");
 		f2lFirstEdgePart1(Cube_colors);
 		print("checkpoint1");
-		f2lFirstEdgePart2(Cube_colors);
+	 	f2lFirstEdgePart2(Cube_colors);
 		print("checkpoint2");
 		f2lSecondEdgePart1(Cube_colors);
 		print("checkpoint3");
@@ -84,35 +86,26 @@ public class rubixCube {
 		print("checkpoint1");
 		yellowOll(Cube_colors);
 		print("checkpoint1");
-		yellowClockWise(Cube_colors);
 		yellowOll(Cube_colors);
 		print("checkpoint2");
-		yellowClockWise(Cube_colors);
 		yellowOll(Cube_colors);
 		print("checkpoint3");
-		yellowClockWise(Cube_colors);
 		yellowOll(Cube_colors);
 		print("checkpoint4");
 		yellowPll(Cube_colors);
 		print("checkpoint1");
-		yellowClockWise(Cube_colors);
 		yellowPll(Cube_colors);
 		print("checkpoint2");
-		yellowClockWise(Cube_colors);
 		yellowPll(Cube_colors);
 		print("checkpoint3");
-		yellowClockWise(Cube_colors);
 		yellowPll(Cube_colors);
 		print("checkpoint4");
 		yellowPll2(Cube_colors);
 		print("checkpoint1");
-		yellowClockWise(Cube_colors);
 		yellowPll2(Cube_colors);
 		print("checkpoint2");
-		yellowClockWise(Cube_colors);
 		yellowPll2(Cube_colors);
 		print("checkpoint3");
-		yellowClockWise(Cube_colors);
 		yellowPll2(Cube_colors);
 		print("checkpoint4");
 	}
@@ -566,7 +559,7 @@ public class rubixCube {
 			whiteClockWise(Cube_colors);
 		}
 		else if (Cube_colors[3][3] == 1 && Cube_colors[2][5] == 6){
-			whiteCounterClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
 			greenClockWise(Cube_colors);
 			orangeClockWise(Cube_colors);
 		}
@@ -1500,6 +1493,851 @@ public class rubixCube {
 		} 
 	}
 	
+	
+	public void newF2lPart1 (int Cube_colors[][]) {
+
+		
+		if (Cube_colors[1][7] == 2 && Cube_colors[5][1] == 5){
+			greenClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+			
+		}
+		else if (Cube_colors[1][7] == 5 && Cube_colors[5][1] == 2){
+			greenClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+		}
+		else if (Cube_colors[5][7] == 2 && Cube_colors[3][7] == 5){
+			orangeClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+		}
+
+		else if (Cube_colors[5][7] == 5 && Cube_colors[3][7] == 2){
+			orangeClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+		}
+		else if (Cube_colors[3][1] == 2 && Cube_colors[4][1] == 5){
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+		}
+		else if (Cube_colors[3][1] == 5 && Cube_colors[4][1] == 2){
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+		}
+
+	}
+	public void newF2lPart2(int Cube_colors[][]) {
+		
+		
+		
+	
+	
+		if (Cube_colors[0][8] == 5 && Cube_colors[1][6] == 2 && Cube_colors[5][0] == 1 && Cube_colors[2][5] == 2 && Cube_colors[3][3] == 5){
+
+			greenClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+
+		}
+		else if (Cube_colors[0][8] == 5 && Cube_colors[1][6] == 2 && Cube_colors[5][0] == 1 && Cube_colors[2][5] == 5 && Cube_colors[3][3] == 2){
+
+			greenClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+
+		}
+		else  if (Cube_colors[0][8] == 2 && Cube_colors[1][6] == 1 && Cube_colors[5][0] == 5 && Cube_colors[2][5] == 2 && Cube_colors[3][3] == 5){
+
+
+			greenClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+		}
+		
+		else  if (Cube_colors[0][8] == 2 && Cube_colors[1][6] == 1 && Cube_colors[5][0] == 5 && Cube_colors[2][5] == 5 && Cube_colors[3][3] == 2){
+
+
+			greenClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+		}
+		else  if (Cube_colors[0][8] == 1 && Cube_colors[1][6] == 5 && Cube_colors[5][0] == 2  && Cube_colors[2][5] == 2 && Cube_colors[3][3] == 5){
+
+
+			greenClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+		}
+		
+		else  if (Cube_colors[0][8] == 1 && Cube_colors[1][6] == 5 && Cube_colors[5][0] == 2  && Cube_colors[2][5] == 5 && Cube_colors[3][3] == 2){
+
+
+			greenClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+		}
+		
+		else if (Cube_colors[0][8] == 5 && Cube_colors[1][6] == 2 && Cube_colors[5][0] == 1 ){
+
+			greenClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+
+		}
+		else  if (Cube_colors[0][8] == 2 && Cube_colors[1][6] == 1 && Cube_colors[5][0] == 5 ){
+
+
+			greenClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+		}
+		else  if (Cube_colors[0][8] == 1 && Cube_colors[1][6] == 5 && Cube_colors[5][0] == 2){
+
+
+			greenClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+		}
+
+		else  if (Cube_colors[0][0] == 5 && Cube_colors[4][0] == 1 && Cube_colors[3][2] == 2 && Cube_colors[1][5] == 5 && Cube_colors[2][3] == 2){
+
+
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+
+		}
+
+		else  if (Cube_colors[0][0] == 2 && Cube_colors[4][0] == 5 && Cube_colors[3][2] == 1 && Cube_colors[1][5] == 5 && Cube_colors[2][3] == 2){
+
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+
+		}
+		else  if (Cube_colors[0][0] == 1 && Cube_colors[4][0] == 2 && Cube_colors[3][2] == 5 && Cube_colors[1][5] == 5 && Cube_colors[2][3] == 2){
+
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+
+
+		} 
+		else  if (Cube_colors[0][0] == 5 && Cube_colors[4][0] == 1 && Cube_colors[3][2] == 2 && Cube_colors[1][5] == 2 && Cube_colors[2][3] == 5){
+
+
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+
+		}
+
+		else  if (Cube_colors[0][0] == 2 && Cube_colors[4][0] == 5 && Cube_colors[3][2] == 1 && Cube_colors[1][5] == 2 && Cube_colors[2][3] == 5){
+
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+
+		}
+		else  if (Cube_colors[0][0] == 1 && Cube_colors[4][0] == 2 && Cube_colors[3][2] == 5 && Cube_colors[1][5] == 2 && Cube_colors[2][3] == 5){
+
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+
+
+		} 
+		
+		else  if (Cube_colors[0][0] == 5 && Cube_colors[4][0] == 1 && Cube_colors[3][2] == 2 ){
+
+
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+
+		}
+
+		else  if (Cube_colors[0][0] == 2 && Cube_colors[4][0] == 5 && Cube_colors[3][2] == 1 ){
+
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+
+		}
+		else  if (Cube_colors[0][0] == 1 && Cube_colors[4][0] == 2 && Cube_colors[3][2] == 5 ){
+
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+
+
+		} 
+		else  if (Cube_colors[0][6] == 5 && Cube_colors[5][6] == 2 && Cube_colors[3][8] == 1 && Cube_colors[2][1] == 2 && Cube_colors[4][5] == 5 ){
+
+
+			orangeClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+
+		}
+
+		else  if (Cube_colors[0][6] == 2 && Cube_colors[5][6] == 1 && Cube_colors[3][8] == 5 && Cube_colors[2][1] == 2 && Cube_colors[4][5] == 5  ){
+
+			orangeClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+
+		}
+		else  if (Cube_colors[0][6] == 1 && Cube_colors[5][6] == 5 && Cube_colors[3][8] == 2 && Cube_colors[2][1] == 2 && Cube_colors[4][5] == 5 ){
+
+			orangeClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);;
+
+
+		} 
+		
+		else  if (Cube_colors[0][6] == 5 && Cube_colors[5][6] == 2 && Cube_colors[3][8] == 1 && Cube_colors[2][1] == 5 && Cube_colors[4][5] == 2 ){
+
+
+			orangeClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+
+		}
+
+		else  if (Cube_colors[0][6] == 2 && Cube_colors[5][6] == 1 && Cube_colors[3][8] == 5 && Cube_colors[2][1] == 5 && Cube_colors[4][5] == 2  ){
+
+			orangeClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+
+		}
+		else  if (Cube_colors[0][6] == 1 && Cube_colors[5][6] == 5 && Cube_colors[3][8] == 2 && Cube_colors[2][1] == 5 && Cube_colors[4][5] == 2 ){
+
+			orangeClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);;
+
+
+		} 
+		
+		else  if (Cube_colors[0][6] == 5 && Cube_colors[5][6] == 2 && Cube_colors[3][8] == 1 ){
+
+
+			orangeClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+
+		}
+
+		else  if (Cube_colors[0][6] == 2 && Cube_colors[5][6] == 1 && Cube_colors[3][8] == 5 ){
+
+			orangeClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+
+		}
+		else  if (Cube_colors[0][6] == 1 && Cube_colors[5][6] == 5 && Cube_colors[3][8] == 2 ){
+
+			orangeClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);;
+
+
+		} 
+	}
+	public void newF2l(int Cube_colors[][]) {
+
+		
+		boolean stage_finished = false;
+		//first case
+		if (Cube_colors[1][2] == 1 && Cube_colors[4][8] == 5 && Cube_colors[2][0] == 2 && Cube_colors[2][7] == 5 && Cube_colors[5][5] == 2){
+
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}
+		else if (Cube_colors[1][2] == 2 && Cube_colors[4][8] == 1 && Cube_colors[2][0] == 5 && Cube_colors[2][5] == 2 && Cube_colors[3][3] == 5){
+
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+		}
+		
+		else if (Cube_colors[1][2] == 1 && Cube_colors[4][8] == 5 && Cube_colors[2][0] == 2 && Cube_colors[4][5] == 5 && Cube_colors[2][1] == 2){
+
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+		}
+		else if (Cube_colors[1][2] == 2 && Cube_colors[4][8] == 1 && Cube_colors[2][0] == 5 && Cube_colors[1][5] == 2 && Cube_colors[2][3] == 5){
+
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+		}
+		
+		 //2nd case
+		else if (Cube_colors[1][0] == 1 && Cube_colors[4][6] == 2 && Cube_colors[0][2] == 5 && Cube_colors[4][5] == 5 && Cube_colors[2][1] == 2){
+
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+		}
+		else if (Cube_colors[1][0] == 2 && Cube_colors[4][6] == 5 && Cube_colors[0][2] == 1 && Cube_colors[4][5] == 5 && Cube_colors[2][1] == 2){
+
+
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors); 
+			stage_finished = true;
+		}
+		else if (Cube_colors[1][0] == 2 && Cube_colors[4][6] == 5 && Cube_colors[0][2] == 1 && Cube_colors[4][5] == 5 && Cube_colors[2][1] == 2){
+			
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+		}
+		else if (Cube_colors[1][5] == 2 && Cube_colors[2][3] == 5 && Cube_colors[0][2] == 1 && Cube_colors[4][6] == 5 && Cube_colors[1][0] == 2){
+			
+			yellowCounterClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+		    yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+		}
+
+		else if (Cube_colors[1][0] == 5 && Cube_colors[4][6] == 1 && Cube_colors[0][2] == 2 && Cube_colors[1][5] == 2 && Cube_colors[2][3] == 5){
+			
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+			
+		}
+		else if (Cube_colors[1][0] == 1 && Cube_colors[4][6] == 2 && Cube_colors[0][2] == 5 && Cube_colors[1][5] == 2 && Cube_colors[2][3] == 5){
+			
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+		}
+		
+		//Third Case
+		else if (Cube_colors[1][2] == 1 && Cube_colors[4][8] == 5 && Cube_colors[2][0] == 2 && Cube_colors[1][1] == 2 && Cube_colors[4][7] ==  5){
+			
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+		}
+		else if (Cube_colors[1][2] == 2 && Cube_colors[4][8] == 1 && Cube_colors[2][0] == 5 && Cube_colors[1][1] == 2 && Cube_colors[4][7] ==  5){
+			
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+		}
+		else if (Cube_colors[1][2] == 5 && Cube_colors[4][8] == 2 && Cube_colors[2][0] == 1 && Cube_colors[1][1] == 2 && Cube_colors[4][7] ==  5){
+			
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+		}
+		else if (Cube_colors[1][2] == 5 && Cube_colors[4][8] == 2 && Cube_colors[2][0] == 1 && Cube_colors[1][1] == 5 && Cube_colors[4][7] ==  2){
+			
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+		}
+		else if (Cube_colors[1][2] == 1 && Cube_colors[4][8] == 5 && Cube_colors[2][0] == 2 && Cube_colors[1][1] == 5 && Cube_colors[4][7] ==  2){
+			
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+			
+		}
+		else if (Cube_colors[1][2] == 2 && Cube_colors[4][8] == 1 && Cube_colors[2][0] == 5 && Cube_colors[1][1] == 5 && Cube_colors[4][7] ==  2){
+			
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+			
+		}
+		//4th Case
+		
+		else if (Cube_colors[1][2] == 1 && Cube_colors[4][8] == 5 && Cube_colors[2][0] == 2 && Cube_colors[1][5] == 5 && Cube_colors[2][3] ==  2){
+			
+			blueCounterClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenClockWise(Cube_colors);
+			orangeClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+			
+		}
+		else if (Cube_colors[1][2] == 2 && Cube_colors[4][8] == 1 && Cube_colors[2][0] == 5 && Cube_colors[4][5] == 2 && Cube_colors[2][1] ==  5){
+			
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			stage_finished = true;
+			
+		}
+		else if (Cube_colors[1][2] == 1 && Cube_colors[4][8] == 5 && Cube_colors[2][0] == 2 && Cube_colors[2][7] == 2 && Cube_colors[5][5] ==  5){
+			
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+			
+		}
+		else if (Cube_colors[1][2] == 2 && Cube_colors[4][8] == 1 && Cube_colors[2][0] == 5 && Cube_colors[2][5] == 5 && Cube_colors[3][3] ==  2){
+			
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+			
+		}
+		else if (Cube_colors[1][2] == 1 && Cube_colors[4][8] == 5 && Cube_colors[2][0] == 2 && Cube_colors[2][5] == 2 && Cube_colors[3][3] ==  5){
+			
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+			
+		}
+		else if (Cube_colors[1][2] == 2 && Cube_colors[4][8] == 1 && Cube_colors[2][0] == 5 && Cube_colors[2][7] == 5 && Cube_colors[5][5] == 2){
+			
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}
+		else if (Cube_colors[1][2] == 1 && Cube_colors[4][8] == 5 && Cube_colors[2][0] == 2 && Cube_colors[1][5] == 2 && Cube_colors[2][3] == 5){
+			
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}
+		else if (Cube_colors[1][2] == 2 && Cube_colors[4][8] == 1 && Cube_colors[2][0] == 5 && Cube_colors[4][5] == 5 && Cube_colors[2][1] == 2){
+			
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+			
+		}
+		else if (Cube_colors[1][2] == 1 && Cube_colors[4][8] == 5 && Cube_colors[2][0] == 2 && Cube_colors[2][5] == 5 && Cube_colors[3][3] == 2){
+			
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+			
+		}	
+		
+		else if (Cube_colors[1][2] == 2 && Cube_colors[4][8] == 1 && Cube_colors[2][0] == 5 && Cube_colors[2][7] == 2 && Cube_colors[5][5] == 5){
+			
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+			
+		}	
+		else if (Cube_colors[1][2] == 1 && Cube_colors[4][8] == 5 && Cube_colors[2][0] == 2 && Cube_colors[4][5] == 2 && Cube_colors[2][1] == 5){
+			
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+		}	
+		else if (Cube_colors[1][2] == 2 && Cube_colors[4][8] == 1 && Cube_colors[2][0] == 5 && Cube_colors[1][5] == 5 && Cube_colors[2][3] == 2){
+			
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+		}	
+		
+		//5th case
+		else if (Cube_colors[1][2] == 5 && Cube_colors[4][8] == 2 && Cube_colors[2][0] == 1 && Cube_colors[4][5] == 2 && Cube_colors[2][1] == 5){
+			
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+		}	
+		else if (Cube_colors[1][2] == 5 && Cube_colors[4][8] == 2 && Cube_colors[2][0] == 1 && Cube_colors[1][5] == 5 && Cube_colors[2][3] == 2){
+			
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			orangeClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}	
+		else if (Cube_colors[1][2] == 5 && Cube_colors[4][8] == 2 && Cube_colors[2][0] == 1 && Cube_colors[2][5] == 5 && Cube_colors[2][3] == 2){
+			
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}	
+		else if (Cube_colors[1][2] == 5 && Cube_colors[4][8] == 2 && Cube_colors[2][0] == 1 && Cube_colors[2][7] == 2 && Cube_colors[5][5] == 5){
+			
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}	
+		else if (Cube_colors[1][2] == 5 && Cube_colors[4][8] == 2 && Cube_colors[2][0] == 1 && Cube_colors[2][7] == 5 && Cube_colors[5][5] == 2){
+			
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}	
+		else if (Cube_colors[1][2] == 5 && Cube_colors[4][8] == 2 && Cube_colors[2][0] == 1 && Cube_colors[2][5] == 2 && Cube_colors[3][3] == 5){
+			
+			yellowCounterClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}	
+		else if (Cube_colors[1][2] == 5 && Cube_colors[4][8] == 2 && Cube_colors[2][0] == 1 && Cube_colors[1][5] == 2 && Cube_colors[2][3] == 5){
+			
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}		
+		else if (Cube_colors[1][2] == 5 && Cube_colors[4][8] == 2 && Cube_colors[2][0] == 1 && Cube_colors[4][5] == 5 && Cube_colors[2][1] == 2){
+			
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}		
+		//6th case
+		else if (Cube_colors[1][0] == 2 && Cube_colors[4][6] == 5 && Cube_colors[0][2] == 1 && Cube_colors[1][1] == 5 && Cube_colors[4][7] == 2){
+			
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+		}	
+		else if (Cube_colors[1][0] == 1 && Cube_colors[4][6] == 2 && Cube_colors[0][2] == 5 && Cube_colors[1][1] == 2 && Cube_colors[4][7] == 5){
+			
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+		}	
+		else if (Cube_colors[1][0] == 5 && Cube_colors[4][6] == 1 && Cube_colors[0][2] == 2 && Cube_colors[1][1] == 2 && Cube_colors[4][7] == 5){
+			
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			stage_finished = true;
+		}	
+		else if (Cube_colors[1][0] == 1 && Cube_colors[4][6] == 2 && Cube_colors[0][2] == 5 && Cube_colors[1][1] == 5 && Cube_colors[4][7] == 2){
+			
+			redClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+		}	
+		else if (Cube_colors[1][0] == 5 && Cube_colors[4][6] == 1 && Cube_colors[0][2] == 2 && Cube_colors[1][1] == 5 && Cube_colors[4][7] == 2){
+			
+			redClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			redCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			redClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			yellowCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			stage_finished = true;
+		}
+		else if (Cube_colors[0][2] == 1 && Cube_colors[1][0] == 2 && Cube_colors[4][6] == 5 && Cube_colors[1][1] == 2  && Cube_colors[4][7] == 5){
+			stage_finished = true;
+	}
+		
+		else if(stage_finished != true){
+			yellowClockWise(Cube_colors);
+
+		}
+}
+	
+	
+	
 	public void f2lFirstEdgePart1(int Cube_colors[][]) {
 
 		if (Cube_colors[1][1] == 5 && Cube_colors[4][7] == 2){
@@ -2177,11 +3015,22 @@ public class rubixCube {
 			yellowClockWise(Cube_colors);
 			blueCounterClockWise(Cube_colors);
 		}
+		
 
 	}
 	public void yellowOll(int Cube_colors[][]) {
 
-		if (Cube_colors[2][0] != 3 && Cube_colors[2][2] != 3 && Cube_colors[2][6] != 3 && Cube_colors[2][8] != 3 && Cube_colors[1][8] == 3 && Cube_colors[3][6] == 3 && Cube_colors[4][2] == 3){
+		
+		boolean stage_finished = false;
+		
+		
+		
+		if (Cube_colors[2][0] == 3 && Cube_colors[2][1] == 3 && Cube_colors[2][2] == 3 && Cube_colors[2][3] == 3 && Cube_colors[2][4] == 3 && Cube_colors[2][5] == 3 && Cube_colors[2][6] == 3 && Cube_colors[2][7] == 3 && Cube_colors[2][8] == 3){
+
+			stage_finished = true;
+		}
+		
+		else if (Cube_colors[2][0] != 3 && Cube_colors[2][2] != 3 && Cube_colors[2][6] != 3 && Cube_colors[2][8] != 3 && Cube_colors[1][8] == 3 && Cube_colors[3][6] == 3 && Cube_colors[4][2] == 3){
 
 			greenClockWise(Cube_colors);
 			yellowClockWise(Cube_colors);
@@ -2197,6 +3046,8 @@ public class rubixCube {
 			yellowClockWise(Cube_colors);
 			yellowClockWise(Cube_colors);
 			greenClockWise(Cube_colors);
+			
+			stage_finished = true;
 		}
 		else if (Cube_colors[2][0] != 3 && Cube_colors[2][2] != 3 && Cube_colors[2][6] != 3 && Cube_colors[2][8] != 3 && Cube_colors[1][2] == 3 && Cube_colors[1][8] == 3 && Cube_colors[3][0] == 3){
 
@@ -2214,6 +3065,8 @@ public class rubixCube {
 			greenCounterClockWise(Cube_colors);
 			yellowCounterClockWise(Cube_colors);
 			redCounterClockWise(Cube_colors);
+			
+			stage_finished = true;
 		}
 
 		else if (Cube_colors[2][0] != 3 && Cube_colors[2][2] != 3 && Cube_colors[2][6] != 3 && Cube_colors[2][8] == 3 && Cube_colors[4][2] == 3 ){
@@ -2227,6 +3080,8 @@ public class rubixCube {
 			greenClockWise(Cube_colors);
 			yellowCounterClockWise(Cube_colors);
 			greenCounterClockWise(Cube_colors);
+			
+			stage_finished = true;
 
 		}
 
@@ -2240,6 +3095,8 @@ public class rubixCube {
 			yellowClockWise(Cube_colors);
 			yellowClockWise(Cube_colors);
 			greenCounterClockWise(Cube_colors);
+			
+			stage_finished = true;
 		}
 
 		else if (Cube_colors[2][0] == 3 && Cube_colors[2][2] != 3 && Cube_colors[2][6] == 3 && Cube_colors[2][8] != 3 && Cube_colors[5][8] == 3 ){
@@ -2252,20 +3109,49 @@ public class rubixCube {
 			greenCounterClockWise(Cube_colors);
 			redCounterClockWise(Cube_colors);
 			greenClockWise(Cube_colors);
+			
+			stage_finished = true;
 		}
 		
 
-		else if (Cube_colors[2][0] == 3 && Cube_colors[2][2] != 3 && Cube_colors[2][6] != 3 && Cube_colors[2][8] == 3 && Cube_colors[1][8] == 3 ){
+		else if (Cube_colors[2][0] == 3 && Cube_colors[2][2] != 3 && Cube_colors[2][6] != 3 && Cube_colors[2][8] == 3 && Cube_colors[5][2] == 3 ){
 
-			redCounterClockWise(Cube_colors);
-			blueClockWise(Cube_colors);
-			redClockWise(Cube_colors);
-			greenCounterClockWise(Cube_colors);
-			redCounterClockWise(Cube_colors);
-		blueCounterClockWise(Cube_colors);
-			redClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
 			greenClockWise(Cube_colors);
+			orangeClockWise(Cube_colors);
+			blueCounterClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+			orangeClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			
+			stage_finished = true;
 		}
+		
+		else if (Cube_colors[2][0] != 3 && Cube_colors[2][2] == 3 && Cube_colors[2][6] != 3 && Cube_colors[2][8] == 3 && Cube_colors[1][8] == 3 ){
+
+			greenClockWise(Cube_colors);
+			greenClockWise(Cube_colors);
+			whiteClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenClockWise(Cube_colors);
+			whiteCounterClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			yellowClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}
+		
+		
+		else if (stage_finished != true){
+			
+			yellowClockWise(Cube_colors);
+		}
+
 
  
 	}
@@ -2356,8 +3242,16 @@ public class rubixCube {
 	
 
 	public void yellowPll2(int Cube_colors[][]) {
+		
+		
+		boolean stage_finished = false;
+		
+		
+		if(Cube_colors[1][2] == 2 && Cube_colors[1][5] == 2 && Cube_colors[1][8] == 2 && Cube_colors[5][8] == 6 && Cube_colors[5][2] == 6 && Cube_colors[5][5] == 6 ){
+			stage_finished = true;
+		} 
 
-		if (Cube_colors[3][3] == 4 && Cube_colors[3][0] == 4 && Cube_colors[3][6] == 4 && Cube_colors[4][5] != 5 && Cube_colors[4][5] == 6){
+		else if (Cube_colors[3][3] == 4 && Cube_colors[3][0] == 4 && Cube_colors[3][6] == 4 && Cube_colors[4][5] != 5 && Cube_colors[4][5] == 6){
 			redClockWise(Cube_colors);
 			redClockWise(Cube_colors);
 			yellowClockWise(Cube_colors);
@@ -2370,6 +3264,8 @@ public class rubixCube {
 			yellowClockWise(Cube_colors);
 			redClockWise(Cube_colors);
 			redClockWise(Cube_colors);
+			
+			stage_finished = true;
 		} else if (Cube_colors[3][3] == 4 && Cube_colors[3][0] == 4 && Cube_colors[3][6] == 4 && Cube_colors[4][5] != 5 && Cube_colors[4][5] == 2){
 			redClockWise(Cube_colors);
 			redClockWise(Cube_colors);
@@ -2383,8 +3279,10 @@ public class rubixCube {
 			yellowCounterClockWise(Cube_colors);
 			redClockWise(Cube_colors);
 			redClockWise(Cube_colors);
+			
+			stage_finished = true;
 		}
-		else if (Cube_colors[3][3] == 6 && Cube_colors[3][0] == 6 && Cube_colors[3][6] == 6 && Cube_colors[4][5] != 4 && Cube_colors[4][5] == 2){
+		else if (Cube_colors[3][3] == 6 && Cube_colors[3][0] == 6 && Cube_colors[3][6] == 6  && Cube_colors[4][5] == 2){
 			redClockWise(Cube_colors);
 			redClockWise(Cube_colors);
 			yellowClockWise(Cube_colors);
@@ -2398,8 +3296,10 @@ public class rubixCube {
 			redClockWise(Cube_colors);
 			redClockWise(Cube_colors);
 			yellowClockWise(Cube_colors);
+			
+			stage_finished = true;
 		}
-		else if (Cube_colors[3][3] == 6 && Cube_colors[3][0] == 6 && Cube_colors[3][6] == 6 && Cube_colors[4][5] != 4 && Cube_colors[4][5] == 5){
+		else if (Cube_colors[3][3] == 6 && Cube_colors[3][0] == 6 && Cube_colors[3][6] == 6 && Cube_colors[4][5] == 5){
 			redClockWise(Cube_colors);
 			redClockWise(Cube_colors);
 			yellowCounterClockWise(Cube_colors);
@@ -2413,6 +3313,8 @@ public class rubixCube {
 			redClockWise(Cube_colors);
 			redClockWise(Cube_colors);
 			yellowClockWise(Cube_colors);
+			
+			stage_finished = true;
 		}
 		else if (Cube_colors[3][3] == 2 && Cube_colors[3][0] == 2 && Cube_colors[3][6] == 2 && Cube_colors[4][5] != 6 && Cube_colors[4][5] == 5){
 			redClockWise(Cube_colors);
@@ -2429,6 +3331,8 @@ public class rubixCube {
 			redClockWise(Cube_colors);
 			yellowClockWise(Cube_colors); 
 			yellowClockWise(Cube_colors);
+			
+			stage_finished = true;
 		}
 		else if (Cube_colors[3][3] == 2 && Cube_colors[3][0] == 2 && Cube_colors[3][6] == 2 && Cube_colors[4][5] != 6 && Cube_colors[4][5] == 5){
 			redClockWise(Cube_colors);
@@ -2445,6 +3349,8 @@ public class rubixCube {
 			redClockWise(Cube_colors);
 			yellowClockWise(Cube_colors);
 			yellowClockWise(Cube_colors);
+			
+			stage_finished = true;
 		}
 		else if (Cube_colors[3][3] == 5 && Cube_colors[3][0] == 5 && Cube_colors[3][6] == 5 && Cube_colors[4][5] != 2 && Cube_colors[4][5] == 4){
 			redClockWise(Cube_colors);
@@ -2461,7 +3367,7 @@ public class rubixCube {
 			redClockWise(Cube_colors);
 			yellowCounterClockWise(Cube_colors);
 			
-			
+			stage_finished = true;
 		}
 		else if (Cube_colors[3][3] == 5 && Cube_colors[3][0] == 5 && Cube_colors[3][6] == 5 && Cube_colors[4][5] != 2 && Cube_colors[4][5] == 6){
 			redClockWise(Cube_colors);
@@ -2477,6 +3383,8 @@ public class rubixCube {
 			redClockWise(Cube_colors);
 			redClockWise(Cube_colors);
 			yellowCounterClockWise(Cube_colors);
+			
+			stage_finished = true;
 			
 		}
 		else if (Cube_colors[1][5] == 2 && Cube_colors[1][2] == 4 && Cube_colors[1][8] == 4 && Cube_colors[3][3] == 4){
@@ -2502,6 +3410,8 @@ public class rubixCube {
 			blueCounterClockWise(Cube_colors);
 			blueCounterClockWise(Cube_colors);
 			yellowClockWise(Cube_colors);
+			
+			stage_finished = true;
 		}
 		else if (Cube_colors[1][5] == 5 && Cube_colors[1][2] == 2 && Cube_colors[1][8] == 2 && Cube_colors[4][5] == 2){
 			orangeClockWise(Cube_colors);
@@ -2528,40 +3438,29 @@ public class rubixCube {
 			redClockWise(Cube_colors);
 			yellowClockWise(Cube_colors);
 			yellowClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}
+		
+		else if (stage_finished != true){
+			yellowClockWise(Cube_colors);
 		}
 	}
 
 	
 	public void yellowPll(int Cube_colors[][]) {
 
-		if (Cube_colors[4][2] == 5 && Cube_colors[4][8] == 5  && Cube_colors[1][8] != 2){
-			orangeCounterClockWise(Cube_colors);
-			greenClockWise(Cube_colors);
-			orangeCounterClockWise(Cube_colors);
-			blueClockWise(Cube_colors);
-			blueClockWise(Cube_colors);
-			orangeClockWise(Cube_colors);
-			greenCounterClockWise(Cube_colors);
-			orangeCounterClockWise(Cube_colors);
-			blueClockWise(Cube_colors);
-			blueClockWise(Cube_colors);
-			orangeClockWise(Cube_colors);
-			orangeClockWise(Cube_colors);
-		} else if (Cube_colors[4][2] == 2 && Cube_colors[4][8] == 2 && Cube_colors[1][2] != 6 && Cube_colors[1][8] != 6){
-			orangeCounterClockWise(Cube_colors);
-			greenClockWise(Cube_colors);
-			orangeCounterClockWise(Cube_colors);
-			blueClockWise(Cube_colors);
-			blueClockWise(Cube_colors);
-			orangeClockWise(Cube_colors);
-			greenCounterClockWise(Cube_colors);
-			orangeCounterClockWise(Cube_colors);
-			blueClockWise(Cube_colors);
-			blueClockWise(Cube_colors);
-			orangeClockWise(Cube_colors);
-			orangeClockWise(Cube_colors);
+		boolean stage_finished = false;
+		
+		
+		
+		
+		if (Cube_colors[1][2] == Cube_colors[1][8]  && Cube_colors[4][8] == Cube_colors[4][2]){
+			stage_finished = true;
+			
 		}
-		else if (Cube_colors[4][2] == 6 && Cube_colors[4][8] == 6 && Cube_colors[1][2]!= 4 && Cube_colors[1][8] != 4){
+		
+		else if (Cube_colors[4][2] == 5 && Cube_colors[4][8] == 5  && stage_finished != true){
 			orangeCounterClockWise(Cube_colors);
 			greenClockWise(Cube_colors);
 			orangeCounterClockWise(Cube_colors);
@@ -2574,8 +3473,26 @@ public class rubixCube {
 			blueClockWise(Cube_colors);
 			orangeClockWise(Cube_colors);
 			orangeClockWise(Cube_colors);
+			
+			stage_finished = true;
+			
+		} else if (Cube_colors[4][2] == 2 && Cube_colors[4][8] == 2 && stage_finished != true){
+			orangeCounterClockWise(Cube_colors);
+			greenClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			orangeClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			orangeClockWise(Cube_colors);
+			orangeClockWise(Cube_colors);
+			
+			stage_finished = true;
 		}
-		else if (Cube_colors[4][2] == 4 && Cube_colors[4][8] == 4 && Cube_colors[1][2] != 5 && Cube_colors[1][8] != 5){
+		else if (Cube_colors[4][2] == 6 && Cube_colors[4][8] == 6 && stage_finished != true){
 			orangeCounterClockWise(Cube_colors);
 			greenClockWise(Cube_colors);
 			orangeCounterClockWise(Cube_colors);
@@ -2588,6 +3505,28 @@ public class rubixCube {
 			blueClockWise(Cube_colors);
 			orangeClockWise(Cube_colors);
 			orangeClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}
+		else if (Cube_colors[4][2] == 4 && Cube_colors[4][8] == 4 && stage_finished != true){
+			orangeCounterClockWise(Cube_colors);
+			greenClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			orangeClockWise(Cube_colors);
+			greenCounterClockWise(Cube_colors);
+			orangeCounterClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			blueClockWise(Cube_colors);
+			orangeClockWise(Cube_colors);
+			orangeClockWise(Cube_colors);
+			
+			stage_finished = true;
+		}
+		
+		else if (stage_finished != true){
+			yellowClockWise(Cube_colors);
 		}
 	}
 	
